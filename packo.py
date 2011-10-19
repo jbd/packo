@@ -21,18 +21,21 @@ in set of approximatively equal size using a greedy algorithm
 Nothing magic or very interesting here :)
 """
 
-import pickle
+from __future__ import print_function
 import pprint
 import random
+
 import sys
 import os
 import glob
 import platform
 
 
-if (2,6,0) > platform.python_version_tuple():
-    print >>sys.stderr, "You need python python >= 2.6 to run this program (3 years old)."
+major, minor, revision = platform.python_version_tuple()
+if major == 2 and minor < 6:
+    sys.stderr.write("You need python python >= 2.6 to run this program (3 years old).")
     sys.exit(1)
+
 
 
 def print_update(data):
@@ -65,7 +68,7 @@ def repartition(items, pack):
     a list of list of item (filename, size). The difference
     between the total amount of data in each of them should be acceptable.
     """
-    results = [ list() for _ in xrange(pack)]
+    results = [ list() for _ in range(pack)]
     sum_results = [0] * pack
     while len(items) > 0:
         item = items.pop()
@@ -110,19 +113,19 @@ def walkdir(pathname):
                 print_update("%d/%d, %s (Memsize: %s)" % (numfiles, total_files, human(currentsize), human(memsizeapprox)))
                 yield fullname, sz
             except OSError:
-                print >>sys.stderr, """Cannot read '%s'""" % fullname
+                print("""Cannot read '%s'""" % fullname, file=sys.stderr)
                 pass
 
 
 def main():
     if len(sys.argv) < 3:
-        print >>sys.stderr, "usage:", sys.argv[0], "path packnum [packpattern]"
+        print("usage:", sys.argv[0], "path packnum [packpattern]", file=sys.stderr)
         sys.exit(1)
     
     pathname = sys.argv[1]
 
     if not os.path.exists(pathname):
-        print >>sys.stderr, pathname, "does not exist."
+        print(pathname, "does not exist.", file=sys.stderr)
         sys.exit(1)
         
     packnum  = int(sys.argv[2])
@@ -131,25 +134,24 @@ def main():
         packpattern = sys.argv[3]
         collisions = glob.glob("%s*" % packpattern)
         if len(collisions) > 0:
-            print >>sys.stderr, "'%s' pattern match existing filenames, aborting." % packpattern
+            print("'%s' pattern match existing filenames, aborting." % packpattern, file=sys.stderr)
             sys.exit(1)
 
 
     files_sizes = [ (filename, size) for filename, size in walkdir(pathname) ]
-    #files_sizes.sort(key = lambda item: item[1]) # sort by size
-    pickle.dump(files_sizes, open("files_sizes", 'w'))
+    files_sizes.sort(key = lambda item: item[1]) # sort by size
     results = repartition(files_sizes, packnum)
 
-    print "\n"
+    print("\n")
 
     for i,result in enumerate(results):
         packsize = sum(x[1] for x in result)
         if doout:
             outfile = file(packpattern + str(i), 'w')
             for name, _ in result:
-                print >>outfile, name
+                print(name, file=outfile)
             outfile.close()
-        print "Pack %d: %s / %d files" % (i,human(packsize),len(result))
+        print("Pack %d: %s / %d files" % (i,human(packsize),len(result)))
 
 
 if __name__ == '__main__':
