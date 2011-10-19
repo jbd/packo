@@ -27,7 +27,6 @@ import random
 
 import sys
 import os
-import glob
 import platform
 
 
@@ -132,11 +131,11 @@ def main():
     doout = len(sys.argv) == 4
     if doout:
         packpattern = sys.argv[3]
-        collisions = glob.glob("%s*" % packpattern)
-        if len(collisions) > 0:
-            print("'%s' pattern match existing filenames, aborting." % packpattern, file=sys.stderr)
-            sys.exit(1)
-
+        for i in range(packnum):
+            packfile = "%s%d" % (packpattern, i)
+            if os.path.exists(packfile):
+                print("'%s' already exists, aborting." % packfile, file=sys.stderr)
+                sys.exit(1)
 
     files_sizes = [ (filename, size) for filename, size in walkdir(pathname) ]
     files_sizes.sort(key = lambda item: item[1]) # sort by size
