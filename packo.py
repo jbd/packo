@@ -77,6 +77,7 @@ def repartition(items, pack):
 
     return results
 
+
 def files_number(pathname):
     """
     Recursively count the number of files under 'pathname'
