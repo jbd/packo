@@ -36,7 +36,6 @@ if major == 2 and minor < 6:
     sys.exit(1)
 
 
-
 def print_update(data):
     """
     Print 'data' on the same line as before
@@ -116,17 +115,18 @@ def walkdir(pathname):
                 pass
 
 
+
 def main():
     if len(sys.argv) < 3:
-        print("usage:", sys.argv[0], "path packnum [packpattern]", file=sys.stderr)
+        print("usage:", sys.argv[0], "path packnum [packfile]", file=sys.stderr)
         sys.exit(1)
-    
+
     pathname = sys.argv[1]
 
     if not os.path.exists(pathname):
         print(pathname, "does not exist.", file=sys.stderr)
         sys.exit(1)
-        
+
     packnum  = int(sys.argv[2])
     doout = len(sys.argv) == 4
     if doout:
