@@ -1,7 +1,7 @@
 Packo
 =====
 
-packo is a simple program from a very specific need : I needed to transfer multiple terabytes of data using rsync. In my environment (file server, connectivity, etc...) I can use multiple rsync in parallel to improve the throughput but didn't want to think about what data each rsync should transfer, that's why i wrote this program.
+packo is a simple program from a very specific need : I needed to transfer multiple terabytes of data using rsync. In my environment (file server, connectivity, etc...) I can use multiple rsync in parallel to improve the throughput but didn't want to think about what data each rsync should transfer, that's why i wrote this program. it may be of interest to you.
 
 It gathers file size information recursively given a path and splits the whole list in sets of approximatively equal size using [a greedy algorithm](http://en.wikipedia.org/wiki/Partition_problem) with a hack. Oups, i should say "heuristic".
 
