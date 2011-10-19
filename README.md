@@ -58,6 +58,7 @@ It will write 5 files :
 	...
 
 If you try to relaunch the command line, the program will exit to prevent overwriting :
+
 	$ python packo.py /usr/share/doc 5 mylistoffiles
 	'mylistoffiles0' already exists, aborting.
 
