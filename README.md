@@ -3,7 +3,7 @@ Packo
 
 packo is a simple program from a very specific need : I needed to transfer multiple terabytes of data using rsync. In my environment (file server, connectivity, etc...) I can use multiple rsync in parallel to improve the throughput but didn't want to think about what data each rsync should transfer, that's why i wrote this program.
 
-It gathers file size information recursively given a path and split the whole list in set of approximatively equal size using a greedy algorithm (http://en.wikipedia.org/wiki/Partition_problem) with a hack. Oups, i should say "heuristic".
+It gathers file size information recursively given a path and split the whole list in set of approximatively equal size using [a greedy algorithm](http://en.wikipedia.org/wiki/Partition_problem) with a hack. Oups, i should say "heuristic".
 
 By default, the program just output what it can do. For example, i want to build 5 sets of files from /usr/share/ :
 
