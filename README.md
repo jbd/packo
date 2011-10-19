@@ -29,7 +29,7 @@ If a want to write the list of files, i just add a filename name :
 	Pack 3: 44.1 MBytes / 2240 files
 	Pack 4: 44.1 MBytes / 2244 files
 
-It will write 5 files :
+It will write 5 files that can be used with the rsync '--files-from' option :
 
 	$ head  mylistoffiles*
 	==> mylistoffiles0 <==
