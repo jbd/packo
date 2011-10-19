@@ -1,6 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Copyright 2011 Jean-Baptiste Denis <jbd@jbdenis.net>
+
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
+# by the Free Software Foundation.
+
+
 """
 Simple program from a very specific need. I needed to transfer multiple
 terabytes of data using rsync. I can use multiple rsync in parallel to 
