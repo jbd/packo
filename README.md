@@ -3,7 +3,7 @@ Packo
 
 packo is a simple program from a very specific need : I needed to transfer multiple terabytes of data using rsync. In my environment (file server, connectivity, etc...) I can use multiple rsync in parallel to improve the throughput but didn't want to think about what data each rsync should transfer, that's why i wrote this program.
 
-It gathers file size information recursively given a path and split the whole list in set of approximatively equal size using [a greedy algorithm](http://en.wikipedia.org/wiki/Partition_problem) with a hack. Oups, i should say "heuristic".
+It gathers file size information recursively given a path and splits the whole list in sets of approximatively equal size using [a greedy algorithm](http://en.wikipedia.org/wiki/Partition_problem) with a hack. Oups, i should say "heuristic".
 
 By default, the program just output what it can do. For example, i want to build 5 sets of files from /usr/share/ :
 
@@ -16,7 +16,7 @@ By default, the program just output what it can do. For example, i want to build
 	Pack 3: 44.1 MBytes / 2240 files
 	Pack 4: 44.1 MBytes / 2244 files
 
-You can see that there is 11202 files here and the process requires approximatively 1.1 MBytes of memory to run. I print this information because my implementation is simple : i'm building the full files list in memory. It shouldn't be a concern for most usage. In this example, each set of files is about 44 MBytes.
+You can see that there are 11202 files here and the process requires approximatively 1.1 MBytes of memory to run. I print this information because my implementation is simple : i'm building the full files list in memory. It shouldn't be a concern for most usage. In this example, each set of files is about 44 MBytes.
 
 If a want to write the list of files, i just add a filename name :
 
