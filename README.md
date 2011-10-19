@@ -19,6 +19,7 @@ By default, the program just output what it can do. For example, i want to build
 You can see that there is 11202 files here and the process requires approximatively 1.1 MBytes of memory to run. I print this information because my implementation is simple : i'm building the full files list in memory. It shouldn't be a concern for most usage. In this example, each set of files is about 44 MBytes.
 
 If a want to write the list of files, i just add a filename name :
+
 	$ python packo.py /usr/share/doc 5 mylistoffiles
 	11202/11202, 220.7 MBytes (Memsize: 1.1 MBytes)
 	
