@@ -141,7 +141,7 @@ def main():
     files_sizes.sort(key = lambda item: item[1]) # sort by size
     results = repartition(files_sizes, packnum)
 
-    print("\n")
+    print(os.linesep, file=sys.stdout)
 
     for i,result in enumerate(results):
         packsize = sum(x[1] for x in result)
