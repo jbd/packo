@@ -142,7 +142,7 @@ def main():
             for name, _ in result:
                 print >>outfile, name
             outfile.close()
-        print "Pack %d: %s" % (i,human(packsize))
+        print "Pack %d: %s / %d files" % (i,human(packsize),len(result))
 
 
 if __name__ == '__main__':
