@@ -27,6 +27,12 @@ import random
 import sys
 import os
 import glob
+import platform
+
+
+if (2,6,0) > platform.python_version_tuple():
+    print >>sys.stderr, "You need python python >= 2.6 to run this program (3 years old)."
+    sys.exit(1)
 
 
 def print_update(data):
