@@ -61,16 +61,15 @@ def repartition(items, pack):
     """
     results = [ list() for _ in xrange(pack)]
     sum_results = [0] * pack
-    while True:
+    while len(items) > 0:
         item = items.pop()
         # we select the result list with the smaller sum...
         index = sum_results.index(min(sum_results)) 
         # ...and we add the item to it
         results[index].append(item)
         sum_results[index] += item[1]
-        if len(items) == 0:
-                return results
 
+    return results
 
 def files_number(pathname):
     """
