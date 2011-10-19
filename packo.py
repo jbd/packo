@@ -146,7 +146,7 @@ def main():
     for i,result in enumerate(results):
         packsize = sum(x[1] for x in result)
         if doout:
-            outfile = file(packpattern + str(i), 'w')
+            outfile = open(packpattern + str(i), 'w')
             for name, _ in result:
                 print(name, file=outfile)
             outfile.close()
