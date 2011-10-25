@@ -118,13 +118,17 @@ def walkdir(pathname):
 
 def main():
     if len(sys.argv) < 3:
-        print("usage:", sys.argv[0], "path packnum [packfile]", file=sys.stderr)
+        print("usage:", sys.argv[0], "dirpath packnum [packfile]", file=sys.stderr)
         sys.exit(1)
 
     pathname = sys.argv[1]
 
     if not os.path.exists(pathname):
         print(pathname, "does not exist.", file=sys.stderr)
+        sys.exit(1)
+
+    if not os.path.isdir(pathname):
+        print(pathname, "is not a directory.", file=sys.stderr)
         sys.exit(1)
 
     packnum  = int(sys.argv[2])
