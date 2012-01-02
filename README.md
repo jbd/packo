@@ -1,4 +1,4 @@
-Please consider using [fpart](http://sourceforge.net/projects/fpart/) from [martymac](http://www.martymac.org/). Inspired by packo, [fpart](http://sourceforge.net/projects/fpart/) is a much more powerful tool, rewritten in C. !!!
+Please consider using [fpart](http://sourceforge.net/projects/fpart/) from [martymac](http://www.martymac.org/). Inspired by packo, [fpart](http://sourceforge.net/projects/fpart/) is a much more powerful tool, rewritten in C.
 =============================================================================
 
 Packo
