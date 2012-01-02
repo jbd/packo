@@ -1,7 +1,8 @@
 Packo
 =====
 
-*!!! Please consider using [fpart](http://sourceforge.net/projects/fpart/) from [martymac](http://www.martymac.org/). Inspired by packo, [fpart](http://sourceforge.net/projects/fpart/) is a much more powerful tool, rewritten in C. !!!*
+Please consider using [fpart](http://sourceforge.net/projects/fpart/) from [martymac](http://www.martymac.org/). Inspired by packo, [fpart](http://sourceforge.net/projects/fpart/) is a much more powerful tool, rewritten in C. !!!
+=============================================================================
 
 packo is a simple program from a very specific need : I needed to transfer multiple terabytes of data using rsync. In my environment (file server, connectivity, etc...) I can use multiple rsync in parallel to improve the throughput but didn't want to think about what data each rsync should transfer, that's why i wrote this program. it may be of interest to you.
 
